@@ -23,6 +23,8 @@
       <module name="FileReader_test" target="1.8" />
       <module name="Hangman_main" target="1.8" />
       <module name="Hangman_test" target="1.8" />
+      <module name="TimeKeeper_main" target="1.8" />
+      <module name="TimeKeeper_test" target="1.8" />
       <module name="WoT_main" target="1.8" />
       <module name="WoT_test" target="1.8" />
     </bytecodeTargetLevel>

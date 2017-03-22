@@ -9,6 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hangman_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Hangman_main.iml" group="Hangman" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hangman_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Hangman_test.iml" group="Hangman" />
       <module fileurl="file://$PROJECT_DIR$/Project1.iml" filepath="$PROJECT_DIR$/Project1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper_main.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper_main.iml" group="TimeKeeper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper_test.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper_test.iml" group="TimeKeeper" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT_main.iml" group="WoT" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT_test.iml" group="WoT" />
