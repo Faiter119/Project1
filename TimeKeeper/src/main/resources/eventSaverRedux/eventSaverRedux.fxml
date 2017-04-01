@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.eventSaverRedux.controllers.EventSaverReduxController">
+   <top>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TableView fx:id="eventTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+
+   </right>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="New Event" />
+            <Separator prefWidth="200.0" />
+            <DatePicker fx:id="newEventDatePicker" />
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="Start Time" />
+            <HBox fillHeight="false" prefWidth="200.0" VBox.vgrow="NEVER">
+               <children>
+                  <ComboBox fx:id="newEventStartHourComboBox" prefWidth="150.0" />
+                  <ComboBox fx:id="newEventStartMinuteComboBox" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="End Time" />
+            <HBox fillHeight="false" layoutX="15.0" layoutY="45.0" prefWidth="200.0">
+               <children>
+                  <ComboBox fx:id="newEventEndHourComboBox" prefWidth="150.0" />
+                  <ComboBox fx:id="newEventEndMinuteComboBox" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <Label text="Category" />
+            <ComboBox fx:id="newEventCategoryComboBox" prefWidth="150.0" />
+            <Label text="Description" />
+            <TextField fx:id="newEventDescription" />
+            <Button fx:id="newEventAddButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onnewEventAddButtonAction" text="Save Event" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>
