@@ -9,5 +9,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-csv:1.4" level="project" />
+    <orderEntry type="module" module-name="FileReader_main" />
   </component>
 </module>
