@@ -5,13 +5,25 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/FileReader.iml" filepath="$PROJECT_DIR$/.idea/modules/FileReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/FileReader_main.iml" filepath="$PROJECT_DIR$/.idea/modules/FileReader_main.iml" group="FileReader" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/FileReader_test.iml" filepath="$PROJECT_DIR$/.idea/modules/FileReader_test.iml" group="FileReader" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradeCalculator.iml" filepath="$PROJECT_DIR$/.idea/modules/GradeCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradeCalculator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GradeCalculator_main.iml" group="GradeCalculator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradeCalculator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GradeCalculator_test.iml" group="GradeCalculator" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hangman.iml" filepath="$PROJECT_DIR$/.idea/modules/Hangman.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hangman_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Hangman_main.iml" group="Hangman" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hangman_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Hangman_test.iml" group="Hangman" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Library.iml" filepath="$PROJECT_DIR$/.idea/modules/Library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Library_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Library_main.iml" group="Library" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Library_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Library_test.iml" group="Library" />
       <module fileurl="file://$PROJECT_DIR$/Project1.iml" filepath="$PROJECT_DIR$/Project1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StockRatioCalculator.iml" filepath="$PROJECT_DIR$/.idea/modules/StockRatioCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StockRatioCalculator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/StockRatioCalculator_main.iml" group="StockRatioCalculator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StockRatioCalculator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/StockRatioCalculator_test.iml" group="StockRatioCalculator" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper_main.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper_main.iml" group="TimeKeeper" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper_test.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper_test.iml" group="TimeKeeper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSocketChatClient.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSocketChatClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSocketChatClient_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSocketChatClient_main.iml" group="WebSocketChatClient" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSocketChatClient_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSocketChatClient_test.iml" group="WebSocketChatClient" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT_main.iml" group="WoT" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT_test.iml" group="WoT" />

@@ -48,7 +48,7 @@ public class FileSingleObjectReader {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        FileSingleObjectReader objectFileHandler = new FileSingleObjectReader(Paths.get("C:/Users/OlavH/IdeaProjects/Project1/FileReader/src/main/resources/object.txt"));
+        FileSingleObjectReader objectFileHandler = new FileSingleObjectReader(Paths.get("/home/faiter/IntelliJ/Projects/Project1/FileReader/src/main/resources/object.txt"));
 
         System.out.println(String.valueOf(objectFileHandler.readObject()));
 

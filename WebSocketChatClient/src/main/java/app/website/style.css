@@ -1,0 +1,33 @@
+
+*{
+  font-family: Consolas, serif;
+
+  padding: 5px;
+}
+
+body{
+  background-color: rgb(63, 127, 127);
+
+}
+
+#content{
+  display: block;
+  justify-content: center;
+  align-items:  center;
+}
+div{
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+}
+#inputFields{
+
+
+}
+#inputFieldsActual{
+  display:  inline;
+}
+
+table { border: none; border-collapse: collapse; }
+table td { border-left: 1px solid #000; }
+table td:first-child { border-left: none; }
