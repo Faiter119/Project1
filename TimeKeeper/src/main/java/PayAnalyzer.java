@@ -3,10 +3,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -32,26 +29,28 @@ public class PayAnalyzer {
                 .mapToInt(event -> (int) event.getDuration().toHours())
                 .sum();
 
-        System.out.println(totalHoursAllTime);
+        System.out.println("Total hours all time: "+totalHoursAllTime);
 
-        int sum1 = events.stream()
+        /*int sum1 = events.stream()
                 .filter(event -> event.getEnd().isAfter(LocalTime.of(16, 0)))
                 .filter(event -> event.getDate().getDayOfWeek() == DayOfWeek.SATURDAY)
                 .mapToInt(event -> (int) event.getDuration().toHours())
                 .sum(); // sluttet etter 14, altså tillegg
 
-        System.out.println(sum1);
+        System.out.println(sum1);*/
 
 
-        Pay pay = new Pay(new BigDecimal(163.45));
+        Pay pay = new Pay(new BigDecimal(166.21));
         pay.addPeriodPay(LocalTime.of(6,0),LocalTime.of(7,0), new BigDecimal(45), DayOfWeek.values()); // alltid
         pay.addPeriodPay(LocalTime.of(18,0),LocalTime.of(21,0), new BigDecimal(22), DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY);
         pay.addPeriodPay(LocalTime.of(21,0),LocalTime.of(23,0), new BigDecimal(45), DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY);
         pay.addPeriodPay(LocalTime.of(13,0),LocalTime.of(16,0), new BigDecimal(45), DayOfWeek.SATURDAY);
         pay.addPeriodPay(LocalTime.of(16,0),LocalTime.of(23,0), new BigDecimal(90), DayOfWeek.SATURDAY);
 
+        pay.addUnpaidBreak(Duration.ofMinutes(330), Duration.ofMinutes(30));
 
-        LocalDate dayBeforeStart = LocalDate.of(2016,5,26);
+
+        /*LocalDate dayBeforeStart = LocalDate.of(2016,5,26);
         LocalDate dayAfterEnd = LocalDate.of(2016,8,14);
 
         double sumForSummer = events.stream()
@@ -59,7 +58,7 @@ public class PayAnalyzer {
                 .mapToDouble(value -> pay.payFor(value).doubleValue())
                 .sum();
 
-        System.out.println(sumForSummer);
+        System.out.println(sumForSummer);*/
 
 
 
@@ -68,7 +67,7 @@ public class PayAnalyzer {
                 .mapToDouble(value -> pay.payFor(value).doubleValue())
                 .sum();
 
-        System.out.println(totalPayAllTime);
+        System.out.println("Total pay all time: "+totalPayAllTime);
 
         double totalPayStart6 = events.stream()
                 .filter(event -> event.getStart().equals(LocalTime.of(6, 0)))
@@ -76,7 +75,7 @@ public class PayAnalyzer {
                 .mapToDouble(value -> pay.payFor(value).doubleValue())
                 .sum();
 
-        System.out.println(totalPayStart6);
+        System.out.println("Total pay start 6: "+totalPayStart6);
         //events.stream().map(event -> TimeInterval.of(event))
 
         Map<Month, Integer> eventsByMonth = getEventsByMonth(events);
@@ -123,10 +122,8 @@ public class PayAnalyzer {
                 .collect(Collectors.toList());
 
         System.out.println();
-        eventsWithNoDepartment.forEach(event -> System.out.println(event.getDescription()));
 
         System.out.println("EFFEKTIV TIMELØNN: "+totalPayAllTime/totalHoursAllTime);
-
     }
 
     static Map<Month, Integer> getEventsByMonth(List<Event> events){
@@ -167,8 +164,6 @@ public class PayAnalyzer {
 
         Map<Month, Integer> map = new HashMap<>();
 
-
-
         events.forEach(event -> {
 
             if (map.containsKey(event.getDate().getMonth())){
@@ -180,6 +175,7 @@ public class PayAnalyzer {
         });
         return map;
     }
+
 
 
 }

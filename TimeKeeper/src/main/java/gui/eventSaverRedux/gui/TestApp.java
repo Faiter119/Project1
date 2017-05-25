@@ -27,7 +27,7 @@ public class TestApp extends Application {
         System.out.println(vbox);
 
         TestController testController = loader.getController();
-        testController.setText("Hello!");
+        testController.setText("Ost!");
 
         stage.setScene(new Scene(vbox));
         stage.show();

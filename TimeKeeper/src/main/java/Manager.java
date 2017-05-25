@@ -1,3 +1,4 @@
+import data.HackedObjectInputStream;
 import javafx.util.converter.LocalTimeStringConverter;
 
 import java.io.*;
@@ -50,7 +51,7 @@ public class Manager {
     public static <T extends Serializable> Optional<T> readFile(File file){
 
         try(FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream ois = new ObjectInputStream(fis)){
+            ObjectInputStream ois = new HackedObjectInputStream(fis)){
 
             return Optional.of((T) ois.readObject());
         }

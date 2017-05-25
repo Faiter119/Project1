@@ -1,4 +1,3 @@
-
 import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
@@ -100,11 +99,20 @@ public class TimeInterval implements Serializable{
         return false;
     }
     public static TimeInterval of(Event event){
-        return new TimeInterval(event.getStart(), event.getEnd());
+
+        TimeInterval timeInterval = new TimeInterval(event.getStart(), event.getEnd());
+        timeInterval.addDay(event.getDate().getDayOfWeek());
+
+        return timeInterval ;
     }
 
     public String toString() {
         return start+" -> "+end;
+    }
+
+    public String toStringWithDays() {
+
+        return "TimeInterval{" + "start=" + start + ", end=" + end + ", days=" + Arrays.toString(days) + '}';
     }
 
     public static void main(String[] args) {
