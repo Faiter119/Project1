@@ -33,122 +33,15 @@ public class GradeCalculator {
         return Grade.ofPoint((int) Math.round(asDouble));
     }
 
-    @Deprecated
-    public static void permutate(List<GradeWithWeight> grades) {
-
-        maxIter = (int) Math.pow(Grade.values().length, grades.size());
-        currentIndex = grades.size()-1;
-
-        grades.forEach(gradeWithWeight -> gradeWithWeight.setGrade(Grade.A));
-
-        permv2(grades, grades.size()-1);
-    }
-
     static int iter = 0;
     static int maxIter;
-    static int currentIndex;
-    static int count = 0;
-    @Deprecated
-    static void permv2(List<GradeWithWeight> grades, int toSkip){
-
-        System.out.println(grades+" = "+getGrade(grades) + " - "+(++iter)+"/"+maxIter);
-
-        if (grades.stream().allMatch(gradeWithWeight -> gradeWithWeight.getGrade() == Grade.F)){
-
-            return;
-        }
-
-        try {
-            Thread.sleep(0);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        grades.stream()
-                .skip(toSkip)
-                //.filter(gradeWithWeight -> gradeWithWeight.getGrade() != Grade.F)
-                .forEach(gradeWithWeight -> {
-
-                    if (gradeWithWeight.getGrade() == Grade.F){
-
-                        gradeWithWeight.setGrade(Grade.A);
-
-                        int i = grades.indexOf(gradeWithWeight);
-
-                        //permv2(grades, toSkip-1);
-
-                        if (grades.get(i-1).getGrade() == Grade.F){
-
-                            grades.stream().skip(currentIndex-1).forEach(gradeWithWeight1 -> gradeWithWeight1.setGrade(Grade.A));
-
-                            grades.get(i-1).setGrade(Grade.A);
-
-
-                            System.out.println("\nCurrent "+currentIndex+"\n");
-                            grades.get(currentIndex-2).setToNextGrade();
-
-                            if (++count >= Grade.values().length-1) {
-                                count = 0;
-
-                                currentIndex--;
-                            }
-
-                            permv2(grades, toSkip);
-                        }
-                        else {
-
-                            //gradeWithWeight.setGrade(Grade.A);
-                            grades.get(i-1).setToNextGrade();
-                            permv2(grades, toSkip);
-                        }
-
-
-                    }
-                    else {
-                        gradeWithWeight.setToNextGrade();
-                        permv2(grades, toSkip);
-
-                    }
-
-        });
-
-
-    }
-
-    @Deprecated
-    public static List<PermGrade> getPermuatationRecursive(List<GradeWithWeight> grades){
-
-        //grades.forEach(gradeWithWeight -> gradeWithWeight.setGrade(Grade.A));
-
-        int i = grades.size()-1;
-        while (!grades.stream().allMatch(gradeWithWeight -> gradeWithWeight.getGrade() == Grade.F)){
-
-            for (int j = grades.size()-1; j >= i ; j--) {
-
-                System.out.println(grades + " = " + getGrade(grades));
-
-                if (grades.get(j).getGrade() == Grade.F){
-
-                    grades.get(j).setGrade(Grade.A);
-                    //i--;
-                }
-                grades.get(j).setToNextGrade();
-                //getPermuatationRecursive(grades);
-
-            }
-            i--;
-        }
-
-
-        return Collections.emptyList();
-    }
 
     public static void findPermutations(List<GradeWithWeight> grades){
 
         maxIter = (int) Math.pow(Grade.values().length, grades.size());
         grades.forEach(gradeWithWeight -> gradeWithWeight.setGrade(Grade.A));
 
+        printHeader(grades);
         permutate(grades, false);
         System.out.println(grades + " = " + getGrade(grades) + " - " + (++iter) + "/" + maxIter); // Else the last iteration is skipped
 
@@ -157,8 +50,6 @@ public class GradeCalculator {
     }
 
     private static void permutate(List<GradeWithWeight> grades, boolean skip){
-
-
 
         Final<Boolean> thisSkip = new Final<>(skip); // Because lambdas are dumb
 
@@ -179,7 +70,7 @@ public class GradeCalculator {
                     System.out.println(grades + " = " + getGrade(grades) + " - " + (++iter) + "/" + maxIter);
 
 
-                    System.out.println("\n");
+                    printHeader(grades);
                     gradeWithWeight.setToNextGrade();
                     thisSkip.set(true);
                 }
@@ -205,16 +96,28 @@ public class GradeCalculator {
 
     }
 
+    private static void printHeader(List<GradeWithWeight> grades){
+
+        System.out.println();
+        grades.forEach(gradeWithWeight -> {
+
+            System.out.print(gradeWithWeight.getWeight()+"%\t\t");
+
+        });
+        System.out.println();
+
+    }
+
     public static void main(String[] args) throws InterruptedException {
 
         List<GradeWithWeight> grades = new ArrayList<>();
 
         // Matte 2
 
-        grades.add(new GradeWithWeight(Grade.C, 20));
-        grades.add(new GradeWithWeight(Grade.D, 20));
-        grades.add(new GradeWithWeight(Grade.D, 20));
-        grades.add(new GradeWithWeight(Grade.D, 20));
+        grades.add(new GradeWithWeight(Grade.C, 50));
+        grades.add(new GradeWithWeight(Grade.D, 25));
+        grades.add(new GradeWithWeight(Grade.D, 25));
+
         // Realfag
 
         /*grades.add(new GradeWithWeight(Grade.B, 25));
