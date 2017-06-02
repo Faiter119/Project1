@@ -1,8 +1,11 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.DoubleFunction;
+import java.util.stream.IntStream;
 
 /**
  * Created by faiter on 5/25/17.
@@ -10,59 +13,64 @@ import java.util.Map;
 public class StockGuesser {
 
 
-    public static void guessAmounts(List<Stock> stocks){
+    public static void guessAmounts(List<Stock> stocks, AccountType accountType){
 
 
         Map<Stock, Double> ratioMap = new HashMap<>();
 
         stocks.forEach(stock -> {
 
-            ratioMap.put(stock, stock.getRatio());
+            double price = stock.getPrice();
+            double percent = stock.getPercentage();
 
-            //System.out.println(stock.getRatio());
+            double priceWithKurtasje = price+ (price*accountType.getKurtasje());
+
+            double ratioWithKurtasje = percent / priceWithKurtasje;
+
+            ratioMap.put(stock, ratioWithKurtasje);
+        });
 
 
-
-        });;
-
-
-        double min = ratioMap.values().stream().mapToDouble(aDouble -> aDouble).min().getAsDouble();
+        double min = ratioMap.values().stream().mapToDouble(aDouble -> aDouble).min().getAsDouble(); // smalles ratio -> stock you have the least of
 
         ratioMap.entrySet().forEach(stockDoubleEntry -> {
 
-            stockDoubleEntry.setValue(stockDoubleEntry.getValue() /min);
+            stockDoubleEntry.setValue(stockDoubleEntry.getValue() / min); // One of the stocks becomes 1, others a ratio of it
+
+            System.out.println("New ratio: "+stockDoubleEntry);
 
         });
 
-        ratioMap.entrySet().forEach(System.out::println);
+        ratioMap.entrySet().stream().skip(1).forEachOrdered(stockDoubleEntry -> { // skips
 
+            DoubleFunction<Integer> function = err -> {
 
-        ratioMap.entrySet().stream().skip(1).forEachOrdered(stockDoubleEntry -> {
+                int nr = 1;
 
-            System.out.println(stockDoubleEntry);
+                double cost = stockDoubleEntry.getValue()*nr;
 
-            double err = 0.001;
-            int nr = 1;
+                while ( cost - Math.floor(cost) > err){
 
-            double cost = stockDoubleEntry.getValue()*nr;
-
-            while ( cost - Math.floor(cost) > err){
-                nr++;
-
-                //System.out.println(nr+" - "+cost+" - "+Math.floor(cost));
-               /* try {
-                    Thread.sleep(500);
+                    nr++;
+                    cost = stockDoubleEntry.getValue()*nr;
                 }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
-                }*/
-                cost = stockDoubleEntry.getValue()*nr;
 
-            }
+                return nr;
+
+            };
+
+
+            //double err = Test.machineLearn(function, 15);
+            //System.out.println("Err that gives 60: "+err);
+
+            double err = 0.047875; // 0.1 -> 0.047875
+
+            Integer nr = function.apply(err);
 
             System.out.println(nr);
 
             int finalNr = nr;
+
             ratioMap.forEach((stock, aDouble) -> {
 
                 System.out.println(stock+" - "+ aDouble * finalNr);
@@ -71,6 +79,18 @@ public class StockGuesser {
 
 
         });
+
+    }
+
+    public static void main(String[] args) {
+
+        List<Integer> collected = IntStream
+                .rangeClosed(1,5)
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+
+        System.out.println(collected);
+
+
 
     }
 

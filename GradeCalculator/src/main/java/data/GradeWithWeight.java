@@ -37,6 +37,14 @@ public class GradeWithWeight {
         this.grade = Grade.values()[ (index == Grade.values().length -1) ? 0 : index+1];
 
     }
+    public void setToPrevGrade(){
+
+        int index = Arrays.binarySearch(Grade.values(), grade);
+
+        this.grade = Grade.values()[ (index == 0) ? Grade.values().length-1 : index-1];
+
+
+    }
 
     @Override
     public String toString() {

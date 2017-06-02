@@ -73,7 +73,7 @@ public class Test {
 
         while (action.apply(err) > expectedValue){
 
-            err+=0.000001;
+            err+=0.0000001;
 
         }
 

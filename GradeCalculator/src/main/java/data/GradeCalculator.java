@@ -1,7 +1,6 @@
 package data;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Created by faiter on 5/24/17.
@@ -34,94 +33,177 @@ public class GradeCalculator {
         return Grade.ofPoint((int) Math.round(asDouble));
     }
 
-    /**
-     * This was suprisingly hard, probably easier with recursion (first time those words have been said)
-     *
-     * @param grades
-     * @return
-     */
-    public static String gradePermutations(List<GradeWithWeight> grades) {
-
-
-        StringBuilder builder = new StringBuilder();
-
-        grades.forEach(gradeWithWeight -> {
-            gradeWithWeight.setGrade(Grade.A);
-
-            builder.append("\t|\t");
-            builder.append(gradeWithWeight.getWeight()).append("%");
-        });
-        builder.append("\t||\tResult");
-        builder.append("\n\t");
-        grades.forEach(gradeWithWeight -> builder.append("***********"));
-        builder.append("\n");
-
-
-        grades.forEach(gradeWithWeight -> {
-
-            Grade startGrade = gradeWithWeight.getGrade();
-
-            Stream.of(Grade.values()).forEach(grade -> {
-
-                //gradeWithWeight.setGrade(grade);
-
-                //builder.append(gradeWithWeight.getGrade());
-
-                Grade grade1 = getGrade(grades);
-
-                grades.forEach(gradeWithWeight1 -> {
-                    builder.append("\t|\t");
-                    builder.append(gradeWithWeight1.getGrade());
-                });
-
-                builder.append("\t||\t");
-                builder.append(grade1);
-                builder.append("\n");
-            });
-            gradeWithWeight.setGrade(startGrade);
-        });
-
-
-        return builder.toString();
-    }
-
-    /**
-     * Now with 100% more recursion
-     */
+    @Deprecated
     public static void permutate(List<GradeWithWeight> grades) {
 
-        if (grades.size() == 2) {
+        maxIter = (int) Math.pow(Grade.values().length, grades.size());
+        currentIndex = grades.size()-1;
 
-            perm(grades.get(0), grades.get(1));
+        grades.forEach(gradeWithWeight -> gradeWithWeight.setGrade(Grade.A));
 
-        }
-        else {
-
-            permutate(grades.subList(0, grades.size() - 1));
-            permutate(grades.subList(1, grades.size()));
-
-        }
+        permv2(grades, grades.size()-1);
     }
 
-    public static void perm(GradeWithWeight grade1, GradeWithWeight grade2) {
+    static int iter = 0;
+    static int maxIter;
+    static int currentIndex;
+    static int count = 0;
+    @Deprecated
+    static void permv2(List<GradeWithWeight> grades, int toSkip){
+
+        System.out.println(grades+" = "+getGrade(grades) + " - "+(++iter)+"/"+maxIter);
+
+        if (grades.stream().allMatch(gradeWithWeight -> gradeWithWeight.getGrade() == Grade.F)){
+
+            return;
+        }
+
+        try {
+            Thread.sleep(0);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        grades.stream()
+                .skip(toSkip)
+                //.filter(gradeWithWeight -> gradeWithWeight.getGrade() != Grade.F)
+                .forEach(gradeWithWeight -> {
+
+                    if (gradeWithWeight.getGrade() == Grade.F){
+
+                        gradeWithWeight.setGrade(Grade.A);
+
+                        int i = grades.indexOf(gradeWithWeight);
+
+                        //permv2(grades, toSkip-1);
+
+                        if (grades.get(i-1).getGrade() == Grade.F){
+
+                            grades.stream().skip(currentIndex-1).forEach(gradeWithWeight1 -> gradeWithWeight1.setGrade(Grade.A));
+
+                            grades.get(i-1).setGrade(Grade.A);
 
 
-        Stream.of(Grade.values()).forEach(grade -> {
+                            System.out.println("\nCurrent "+currentIndex+"\n");
+                            grades.get(currentIndex-2).setToNextGrade();
 
-            grade2.setGrade(grade);
+                            if (++count >= Grade.values().length-1) {
+                                count = 0;
 
-            System.out.println(grade1 + " + " + grade2 + " = " + getGrade(Arrays.asList(grade1, grade2)));
+                                currentIndex--;
+                            }
+
+                            permv2(grades, toSkip);
+                        }
+                        else {
+
+                            //gradeWithWeight.setGrade(Grade.A);
+                            grades.get(i-1).setToNextGrade();
+                            permv2(grades, toSkip);
+                        }
+
+
+                    }
+                    else {
+                        gradeWithWeight.setToNextGrade();
+                        permv2(grades, toSkip);
+
+                    }
 
         });
 
-        if (grade1.getGrade() == Grade.F) {
-            return;
-        }
-        grade2.setGrade(Grade.A);
-        grade1.setToNextGrade();
-        perm(grade1, grade2);
+
     }
 
+    @Deprecated
+    public static List<PermGrade> getPermuatationRecursive(List<GradeWithWeight> grades){
+
+        //grades.forEach(gradeWithWeight -> gradeWithWeight.setGrade(Grade.A));
+
+        int i = grades.size()-1;
+        while (!grades.stream().allMatch(gradeWithWeight -> gradeWithWeight.getGrade() == Grade.F)){
+
+            for (int j = grades.size()-1; j >= i ; j--) {
+
+                System.out.println(grades + " = " + getGrade(grades));
+
+                if (grades.get(j).getGrade() == Grade.F){
+
+                    grades.get(j).setGrade(Grade.A);
+                    //i--;
+                }
+                grades.get(j).setToNextGrade();
+                //getPermuatationRecursive(grades);
+
+            }
+            i--;
+        }
+
+
+        return Collections.emptyList();
+    }
+
+    public static void findPermutations(List<GradeWithWeight> grades){
+
+        maxIter = (int) Math.pow(Grade.values().length, grades.size());
+        grades.forEach(gradeWithWeight -> gradeWithWeight.setGrade(Grade.A));
+
+        permutate(grades, false);
+        System.out.println(grades + " = " + getGrade(grades) + " - " + (++iter) + "/" + maxIter); // Else the last iteration is skipped
+
+
+
+    }
+
+    private static void permutate(List<GradeWithWeight> grades, boolean skip){
+
+
+
+        Final<Boolean> thisSkip = new Final<>(skip); // Because lambdas are dumb
+
+        grades.stream().forEach(gradeWithWeight -> {
+
+            if (grades.stream().allMatch(gradeWithWeight1 -> gradeWithWeight1.getGrade() == Grade.F)) {
+                return;
+            }
+
+            if (gradeWithWeight.getGrade() == Grade.F) { // At the end of an iteration
+
+                if (thisSkip.get()) {
+                    //thisSkip.set(false);
+                    gradeWithWeight.setToNextGrade();
+    
+                }
+                else { // To avoid duplicates the first iteration
+                    System.out.println(grades + " = " + getGrade(grades) + " - " + (++iter) + "/" + maxIter);
+
+
+                    System.out.println("\n");
+                    gradeWithWeight.setToNextGrade();
+                    thisSkip.set(true);
+                }
+            }
+
+            else { // still in the main iteration loop
+
+
+                if (thisSkip.get()) { // First time
+                    thisSkip.set(false);
+                }
+                else {
+                    System.out.println(grades + " = " + getGrade(grades) + " - " + (++iter) + "/" + maxIter);
+
+                }
+
+                gradeWithWeight.setToNextGrade();
+
+                permutate(grades, thisSkip.get());
+            }
+
+        });
+
+    }
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -129,30 +211,29 @@ public class GradeCalculator {
 
         // Matte 2
 
-        /*grades.add(new GradeWithWeight(Grade.D, 45));
-        grades.add(new GradeWithWeight(Grade.A, 20));
-        grades.add(new GradeWithWeight(Grade.A, 35));
-*/
-
+        grades.add(new GradeWithWeight(Grade.C, 20));
+        grades.add(new GradeWithWeight(Grade.D, 20));
+        grades.add(new GradeWithWeight(Grade.D, 20));
+        grades.add(new GradeWithWeight(Grade.D, 20));
         // Realfag
 
-       /* grades.add(new GradeWithWeight(Grade.B, 25));
+        /*grades.add(new GradeWithWeight(Grade.B, 25));
         grades.add(new GradeWithWeight(Grade.B, 25));
         grades.add(new GradeWithWeight(Grade.A, 50));
 */
-
         // Nettprogg
 
-       /* grades.add(new GradeWithWeight(Grade.A, 50));
-        grades.add(new GradeWithWeight(Grade.B, 50));
-*/
-        grades.add(new GradeWithWeight(Grade.B, 25));
-        grades.add(new GradeWithWeight(Grade.B, 25));
+        /*grades.add(new GradeWithWeight(Grade.A, 50));
         grades.add(new GradeWithWeight(Grade.A, 50));
+        *//*grades.add(new GradeWithWeight(Grade.B, 25));
+        grades.add(new GradeWithWeight(Grade.B, 25));
+        grades.add(new GradeWithWeight(Grade.A, 50));*/
 
         System.out.println(getGrade(grades));
 
-        permutate(grades);
+        //getPermuatationRecursive(grades);
+
+        findPermutations(grades);
 
         //perm(grades.get(0), grades.get(1));
         //System.out.println(gradePermutations(grades));
