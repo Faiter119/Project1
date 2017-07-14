@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--
+    <link href="material.css" rel="stylesheet">
+-->
+
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><!--<img src="logo.png">-->Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" id="container">
+
+
+
+    <div class="row">
+        <div class="col s12 m6 push-m3">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Olav Reppe Husby's Website</span>
+                    <p>
+
+                        This is my website: Work In Progress <br>
+
+                        I use the following technology
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s2 m2 l2 push-l3">
+            <img v-on:click="vueLogoClicked"class="responsive-img" src="https://vuejs.org/images/logo.png" >
+        </div>
+        <div class="col s2 m2 l2 push-l3">
+            <img v-on:click="materializeLogoClicked" class="responsive-img" src="https://evwilkin.github.io/images/materializecss.png" >
+        </div>
+        <div class="col s2 m2 l2 push-l3">
+            <img v-on:click="tihldeLogoClicked" class="responsive-img" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Tihldelogo.gif">
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="projects">
+
+        <h1 class="center-align">Projects</h1>
+
+        <div class="row">
+            <div class="col s12 m6 l3">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Poll</span>
+                        <p>Web-based poll service with several voting systems</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="green-text" href="/poll/main/mainPage.html">Try it out</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Different Project</span>
+                        <p>This is a different project that is totally not a placeholder</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="green-text" href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l5">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Not a bullshit project</span>
+                        <p>
+                            Professionally leverage existing focused e-services.<br>
+                            Dynamically generate magnetic content.<br>
+                            Buzzword Driven Development.</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="green-text" href="http://www.atrixnet.com/bs-generator.html">BS Generator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>
+
+
+</body>
+</html>

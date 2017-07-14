@@ -1,0 +1,19 @@
+*{
+    font-family: Consolas, serif;
+}
+
+nav{
+
+    background-color: #41B883
+}
+.card{
+
+    background-color: #35495E;
+}
+.green-text{
+
+    color: #41B883;
+}
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 64px;
+}

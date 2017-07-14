@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-if="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="../../material.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="optionsDiv">
+
+            <h1 class="center">{{title}}</h1>
+
+            <hr>
+
+            <p><b>Voting System:</b> {{votingSystem}}</p>
+
+            <hr>
+
+            <p><b>Options</b></p>
+
+
+            <template v-if="votingSystem == 'FIRST_PAST_THE_POST'">
+
+                    <p v-for="option in options">
+                        {{option.title}}
+                    <input type="radio"  v-bind:value="option.title" v-model="selected">
+
+            <p><b>Selected:</b> {{selected}}</p>
+
+            </template>
+
+
+
+            <template v-else>
+
+                <p v-for="option in options">
+                    {{option.title}}
+
+                    <select v-model="option.rank">
+                        <option value='undefined'>Not Ranked</option>
+                        <option v-for="i in numberOfOptions">{{ i }}</option>
+                    </select>
+
+                <!--<p><b>Ranks:</b> {{options}}</p>-->
+
+                </p>
+            </template>
+
+
+
+        </div>
+
+        <hr>
+
+        <!---->
+        <div id="submitVoteDiv">
+
+            <button v-on:click="submitVote" v-bind:disabled="isDisabled">Vote</button>
+            <p v-if="isDisabled"><b>You have already voted</b></p>
+
+        </div>
+        <!---->
+
+        <hr>
+
+        <!---->
+        <div id="seeResultDiv">
+
+            <button v-on:click="getResult">See Result</button>
+
+            <p v-show="result">Winner is {{result}} </p>
+
+            <div v-show="result " class="ct-chart ct-perfect-fourth"></div>
+
+
+        </div>
+        <!---->
+
+    </div>
+
+    <script src="../hash.js"></script>
+    <script src="pollPage.js"></script>
+
+
+    <!-- Compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</body>
+</html>

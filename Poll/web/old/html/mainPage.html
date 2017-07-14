@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script src="../scripts/mainPage.js"></script>
+
+</head>
+
+<body>
+
+    <div class="row">
+
+            <div class="col m4 push-m4">
+                <div class="card">
+                    <div class="card-content">
+
+                        <p class="center"><b>Voting System</b></p>
+
+                        <form id="systemForm" action="#">
+                            <p>
+                                <input class="with-gap" name="votingSystems" type="radio" id="FPTPRadio" value="First Past The Post" />
+                                <label for="FPTPRadio">First Past The Post</label>
+                            </p>
+                            <p>
+                                <input class="with-gap" name="votingSystems" type="radio" id="RVRadio" value="Ranked Vote"/>
+                                <label for="RVRadio">Ranked Vote</label>
+                            </p>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col m4 push-m4">
+            <div class="card">
+                <div class="card-content center">
+
+                    <p class="center"><b>Options</b></p>
+
+                    <ul id="optionList">
+
+
+                    </ul>
+
+
+                    <i class="material-icons col m2">add</i>
+
+                    <input id="optionNameInput" class="col m4" name="Option Name">
+
+                        <button id="addOptionButton" class="btn waves-effect waves-light">Add Option</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col m4 push-m4">
+            <div class="card">
+                <div class="card-content center">
+
+                    <button id="makePollButton" class="btn waves-effect waves-light" type="submit" name="action">Make Poll
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/mainPage.css">
+
+
+    <script src="../scripts/pollPage.js"></script>
+
+
+
+</body>
+
+</html>
