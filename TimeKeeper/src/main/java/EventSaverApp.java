@@ -1,6 +1,7 @@
 /**
  * Created by Olav Husby on 01.07.2016.
- */
+ *//*
+
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleObjectProperty;
@@ -105,7 +106,9 @@ public class EventSaverApp extends Application { // TODO: 07.07.2016 cleanup
 
         ToolBar toolBar = new ToolBar();
 
-        toolBar.getItems().addAll(financeButton()/*, new Button("Events")*/);
+        toolBar.getItems().addAll(financeButton()*/
+/*, new Button("Events")*//*
+);
 
 
         return toolBar;
@@ -167,8 +170,10 @@ public class EventSaverApp extends Application { // TODO: 07.07.2016 cleanup
         vBox.setAlignment(Pos.CENTER); vBox.setPadding(new Insets(20)); vBox.setSpacing(20);
         vBox.setMaxWidth(500); vBox.setMinWidth(500);
 
-        /*GridPane grid = new GridPane();
-        grid.setVgap(20); grid.setHgap(20); */
+        */
+/*GridPane grid = new GridPane();
+        grid.setVgap(20); grid.setHgap(20); *//*
+
 
         // Table
         table = new TableView<>();
@@ -217,8 +222,10 @@ public class EventSaverApp extends Application { // TODO: 07.07.2016 cleanup
         datePicker.setValue(LocalDate.now());
         datePicker.setEditable(false);
 
-       /* TextField dateTextField = new TextField(LocalDate.now().toString());
-            dateTextField.setTooltip(new Tooltip("Format is YYYY-MM-DD"));*/
+       */
+/* TextField dateTextField = new TextField(LocalDate.now().toString());
+            dateTextField.setTooltip(new Tooltip("Format is YYYY-MM-DD"));*//*
+
         TextField startTextField = new TextField();
             startTextField.setTooltip(new Tooltip("Format is H, HH:MM, or H:MM | H = Hour(24-clock), M = Minute"));
         TextField endTextField = new TextField();
@@ -279,7 +286,9 @@ public class EventSaverApp extends Application { // TODO: 07.07.2016 cleanup
             if(event.getCode() == KeyCode.ENTER) addNewEventButton.fire();
         });
 
-        grid.addRow(0, new Label("Date: ")/*dateTextField*/, datePicker);
+        grid.addRow(0, new Label("Date: ")*/
+/*dateTextField*//*
+, datePicker);
         grid.addRow(1, new Label("Start (Optional): "), startTextField);
         grid.addRow(2, new Label("End (Optional): "), endTextField);
         grid.addRow(3, new Label("Description (Optional): "), descriptionTextField);
@@ -584,9 +593,11 @@ public class EventSaverApp extends Application { // TODO: 07.07.2016 cleanup
         }
     }
 
-    /**
+    */
+/**
      * Takes badly formated time and makes it into localtime by magic
-     */
+     *//*
+
     private static LocalTime parse(String time){
         time = time.trim();
         if(time.length() == 4) time = time.substring(0,2)+":"+time.substring(2); // changes 1430 -> 14:30
@@ -612,4 +623,4 @@ public class EventSaverApp extends Application { // TODO: 07.07.2016 cleanup
             return LocalTime.MIN;
         }
     }
-}
+}*/

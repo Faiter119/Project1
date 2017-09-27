@@ -1,6 +1,6 @@
 package Files;
 
-import data.Person;
+import backend.data.Person;
 
 import java.io.*;
 import java.nio.file.Path;

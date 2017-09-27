@@ -1,3 +1,10 @@
+
+var navContainer = new Vue({
+
+    el: "#navContainer"
+
+})
+
 var votingSystemRadioDiv = new Vue({
     el: '#votingSystemRadioDiv',
     data: {
@@ -14,7 +21,6 @@ var votingSystemRadioDiv = new Vue({
 var optionListDiv = new Vue({
     el: '#optionListDiv',
     data: {
-        message: "Options",
         optionName: null,
         options: []
     },

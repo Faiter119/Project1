@@ -1,6 +1,9 @@
-package gui.eventSaverRedux.gui;/**
+/*
+package gui.eventSaverRedux.gui;*/
+/**
  * Created by OlavH on 31-Mar-17.
- */
+ *//*
+
 
 import gui.eventSaverRedux.controllers.TestController;
 import javafx.application.Application;
@@ -33,3 +36,4 @@ public class TestApp extends Application {
         stage.show();
     }
 }
+*/

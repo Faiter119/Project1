@@ -1,5 +1,3 @@
-import javafx.util.converter.LocalTimeStringConverter;
-
 import java.io.*;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -85,9 +83,9 @@ public class Event implements Serializable{
     }
 
     public String toString() {
-        LocalTimeStringConverter converter = new LocalTimeStringConverter();
+
         if(startTime != null && endTime != null) {
-            return date.toString() + " : " + converter.toString(startTime) + " -> " + converter.toString(endTime);
+            return date.toString() + " : " + startTime + " -> " + endTime;
         }
         return date.toString();
     }

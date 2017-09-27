@@ -25,6 +25,7 @@ import java.util.Map;
 public class PollController {
 
     private Map<Integer, Poll> pollMap = new HashMap<>();
+    private int pollCounter = 0;
 
     {
         Poll poll = new PollImpl(PollType.FIRST_PAST_THE_POST);
@@ -33,18 +34,45 @@ public class PollController {
         poll.addOption(new Choice("Cheese"));
         poll.addOption(new Choice("Money"));
 
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(0),1).build());
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(0),1).build());
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(1),1).build());
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(1),1).build());
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(2),1).build());
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(2),1).build());
-        poll.vote(new VoteImpl.Builder().vote(poll.getOptions().get(2),1).build());
+        List<Option> options = poll.getOptions();
 
-        pollMap.put(0, poll);
+        // test data
+        poll.vote(new VoteImpl.Builder().vote(options.get(0),1).build());
+        poll.vote(new VoteImpl.Builder().vote(options.get(0),1).build());
+        poll.vote(new VoteImpl.Builder().vote(options.get(1),1).build());
+        poll.vote(new VoteImpl.Builder().vote(options.get(1),1).build());
+
+        poll.vote(new VoteImpl.Builder().vote(options.get(2),1).build());
+        poll.vote(new VoteImpl.Builder().vote(options.get(2),1).build());
+        poll.vote(new VoteImpl.Builder().vote(options.get(2),1).build());
+
+
+        //
+        Poll poll1 = new PollImpl(PollType.RANKED_CHOICE);
+        poll1.addOption(new Choice("Food"));
+        poll1.addOption(new Choice("Cheese"));
+        poll1.addOption(new Choice("Money"));
+
+        List<Option> options1 = poll1.getOptions();
+
+        poll1.vote(new VoteImpl.Builder()
+                .vote(options1.get(0),1)
+                .vote(options1.get(1),2).build());
+        poll1.vote(new VoteImpl.Builder()
+                .vote(options1.get(0),1)
+                .vote(options1.get(2),2).build());
+
+        poll1.vote(new VoteImpl.Builder()
+                .vote(options1.get(0),3)
+                .vote(options1.get(2),2)
+                .vote(options1.get(1),1).build());
+
+
+
+        pollMap.put(pollCounter++, poll);
+        pollMap.put(pollCounter++, poll1);
     }
 
-    private int pollCounter = 1;
 
     @GetMapping(value = "", produces = "Application/JSON")
     public Collection<Poll> getPolls(){
@@ -86,7 +114,7 @@ public class PollController {
     @ResponseStatus(HttpStatus.OK)
     public void vote(@PathVariable int pollID, @RequestBody List<RankedVote> votes){
 
-        System.out.println("Vote "+pollID+" on "+votes);
+        System.out.println("\nVote on id"+pollID+" on "+votes);
 
         Poll pollOfID = getPollOfID(pollID);
 
@@ -95,7 +123,7 @@ public class PollController {
         votes.forEach(voteData -> {
 
 
-            vote.vote(voteData);//optionFromTitle, voteData.getRank());
+            vote.vote(voteData); //optionFromTitle, voteData.getRank());
 
         });
 
@@ -121,10 +149,13 @@ public class PollController {
     @GetMapping("/{pollId}/stats")
     public Statistic getStats(@PathVariable int pollId){
 
+        System.out.println("\nGETTING STATS");
+
         Poll pollOfID = getPollOfID(pollId);
+        System.out.println("\n POLL\n"+pollOfID+"\n"+pollOfID.getVotes()+"\n");
         Statistic statistic = Statistic.of(pollOfID);
 
-        System.out.println(statistic.optionVoteDistribution);
+        System.out.println(statistic.optionRankVoteMap);
 
         return statistic;
 

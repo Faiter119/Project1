@@ -17,3 +17,14 @@ nav{
 .navbar-material .nav-wrapper .brand-logo img {
     height: 64px;
 }
+input{
+
+
+
+}
+#githubImage{
+    height: auto;
+    width: auto;
+    max-width: 50px;
+    max-height: 50px;
+}

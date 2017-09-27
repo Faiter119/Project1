@@ -1,3 +1,4 @@
+/*
 package gui.eventSaverRedux.controllers;
 
 import gui.eventSaverRedux.data.Event;
@@ -106,9 +107,11 @@ public class NewEventPaneController extends VBox{
         newEventEndMinuteComboBox.setValue(0);
         newEventEndHourComboBox.setValue(LocalTime.now().getHour()-1); // takes 1 hour to get home maybe
 
-        /*
+        */
+/*
          * CATEGORIES
-         */
+         *//*
+
         newEventCategoryComboBox.setItems(FXCollections.observableArrayList(Arrays.asList(
                 "HLP",
                 "SS"
@@ -117,4 +120,4 @@ public class NewEventPaneController extends VBox{
         this.setMinWidth(500); // So things dont get cut off, probably not the best way
     }
 
-}
+}*/

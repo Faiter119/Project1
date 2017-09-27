@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
-      xmlns:v-if="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link href="../../material.css" rel="stylesheet">
+    <!--
+        <link href="../../material.css" rel="stylesheet">
+    -->
 
     <script src="https://unpkg.com/vue"></script>
 
@@ -19,95 +20,155 @@
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.1/chartist-plugin-legend.js"></script>
+
+
+    <!--
+        <script src="/materializeFix.js"></script>
+    -->
+
+    <script src="/poll/components.js"></script>
 
 </head>
 <body>
 
-    <div id="container">
+<div id="container">
 
-        <div id="optionsDiv">
+    <div id="navContainer">
+        <poll-navbar></poll-navbar>
+    </div>
 
-            <h1 class="center">{{title}}</h1>
+    <div id="optionsDiv">
 
-            <hr>
+        <div class="row">
+            <div class="col s12 m6 push-m3">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
 
-            <p><b>Voting System:</b> {{votingSystem}}</p>
-
-            <hr>
-
-            <p><b>Options</b></p>
-
-
-            <template v-if="votingSystem == 'FIRST_PAST_THE_POST'">
-
-                    <p v-for="option in options">
-                        {{option.title}}
-                    <input type="radio"  v-bind:value="option.title" v-model="selected">
-
-            <p><b>Selected:</b> {{selected}}</p>
-
-            </template>
-
-
-
-            <template v-else>
-
-                <p v-for="option in options">
-                    {{option.title}}
-
-                    <select v-model="option.rank">
-                        <option value='undefined'>Not Ranked</option>
-                        <option v-for="i in numberOfOptions">{{ i }}</option>
-                    </select>
-
-                <!--<p><b>Ranks:</b> {{options}}</p>-->
-
-                </p>
-            </template>
-
-
-
+                        <h1 class="center">{{title}}</h1>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <hr>
+        <div class="row">
 
-        <!---->
-        <div id="submitVoteDiv">
+            <div class="col s12 m4 push-m4">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
 
-            <button v-on:click="submitVote" v-bind:disabled="isDisabled">Vote</button>
-            <p v-if="isDisabled"><b>You have already voted</b></p>
+                        <div class="center">
+                            <p><b>Options</b></p>
+                            <hr>
+                        </div>
 
+                        <template v-if="votingSystem == 'FIRST_PAST_THE_POST'">
+
+                            <form>
+                                <div v-for="option in options">
+
+                                    <div>
+                                        <input class="with-gap" type="radio" v-bind:id="option.title"
+                                               v-bind:value="option.title" v-model="selected"/>
+                                        <label v-bind:for="option.title">{{option.title}}</label>
+                                        <!--NEED LABEL FOR MATERIALIZE TO WORK-->
+                                    </div>
+
+                                </div>
+                            </form>
+
+                            <p><b>Selected:</b> {{selected}}</p>
+                        </template>
+
+                        <template v-else>
+
+                            <p v-for="option in options">
+                                {{option.title}}
+
+                                <select v-model="option.rank" class="browser-default">
+                                    <option value='undefined'>Not Ranked</option>
+                                    <option v-for="i in numberOfOptions">{{ i }}</option>
+                                </select>
+
+                                <!--<p><b>Ranks:</btwitterOptionsions}}</p>-->
+                            </p>
+                        </template>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <!---->
-
-        <hr>
-
-        <!---->
-        <div id="seeResultDiv">
-
-            <button v-on:click="getResult">See Result</button>
-
-            <p v-show="result">Winner is {{result}} </p>
-
-            <div v-show="result " class="ct-chart ct-perfect-fourth"></div>
-
-
-        </div>
-        <!---->
 
     </div>
 
-    <script src="../hash.js"></script>
-    <script src="pollPage.js"></script>
+
+    <!---->
+
+    <div class="row">
+        <div class="col s12 m4 push-m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text center">
+
+                    <div id="submitVoteDiv">
+
+                        <button class="btn waves-effect waves-light" v-on:click="submitVote"
+                                v-bind:disabled="isDisabled">Vote
+                        </button>
+                        <p v-if="isDisabled"><b>You have already voted</b></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
 
 
-    <!-- Compiled and minified CSS -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!---->
 
-    <!-- Compiled and minified JavaScript -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    -->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="row">
+        <div class="col s12 m4 push-m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+
+                    <div id="seeResultDiv">
+
+                        <div class="center">
+
+                            <button class="btn waves-effect waves-light" v-on:click="getResult">See Result
+                            </button>
+                        </div>
+
+                        <div v-show="result">
+                            <p>Winner is {{result}} </p>
+
+                            <div class="ct-chart ct-perfect-fourth"></div>
+
+                            <div id="legend"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---->
+
+<script src="../hash.js"></script>
+<script src="pollPage.js"></script>
+<link rel="stylesheet" href="../chart.css">
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="/index.css">
+<link href="/mods.css" rel="stylesheet">
 
 </body>
 </html>

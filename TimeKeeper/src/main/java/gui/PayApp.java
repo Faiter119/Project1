@@ -1,6 +1,9 @@
-package gui;/**
+/*
+package gui;*/
+/**
  * Created by OlavH on 30-Mar-17.
- */
+ *//*
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,3 +30,4 @@ public class PayApp extends Application {
 
     }
 }
+*/

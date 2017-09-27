@@ -1,9 +1,9 @@
-import data.HackedObjectInputStream;
-import javafx.util.converter.LocalTimeStringConverter;
+package java;
+
+import gui.eventSaverRedux.data.Event;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Properties;
@@ -22,8 +22,8 @@ public class Manager {
 
         ArrayList<Event> events = new ArrayList<>();
 
-        Event event = new Event(LocalDate.now());
-        event.setStart(LocalTime.parse(new LocalTimeStringConverter().toString(LocalTime.now())));
+        Event event = new Event();
+        //event.setStart(LocalTime.parse(new LocalTimeStringConverter().toString(LocalTime.now())));
         event.setDescription("You started using this application, good for you.");
 
         events.add(event);
@@ -51,7 +51,7 @@ public class Manager {
     public static <T extends Serializable> Optional<T> readFile(File file){
 
         try(FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream ois = new HackedObjectInputStream(fis)){
+            ObjectInputStream ois = new backend.data.HackedObjectInputStream(fis)){
 
             return Optional.of((T) ois.readObject());
         }
@@ -176,7 +176,7 @@ public class Manager {
 
     public static void main(String[] args) {
 
-        Event oBorn = new Event(LocalDate.of(1996,6,8));
+        Event oBorn = new Event(/*LocalDate.of(1996,6,8)*/);
         /*oBorn.setStart(LocalTime.of(12,0));
         oBorn.setEnd(LocalTime.of(15,0));*/
         oBorn.setDescription("Olav was born.");

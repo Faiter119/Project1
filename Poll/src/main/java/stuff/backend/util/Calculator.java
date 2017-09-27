@@ -18,7 +18,8 @@ public class Calculator {
 
         int size = votes.size();
 
-        Map<Option, List<Option>> collect = votes.stream().map(vote -> vote.getOfRank(1)) // only first choices
+        Map<Option, List<Option>> collect = votes.stream()
+                .map(vote -> vote.getOfRank(1)) // only first choices
                 .collect(Collectors.groupingBy(o -> o));
 
         Map<Option, Integer> amountMap = new HashMap<>();
@@ -44,7 +45,18 @@ public class Calculator {
 
     }
 
-    public static Option instantRunoff(List<Vote> votes){
+    public static Option instantRunoff(List<Vote> original){
+
+        List<Vote> votes = new ArrayList<>();
+
+        original.forEach(vote -> {
+
+            VoteImpl vote1 = (VoteImpl) vote;
+
+            votes.add(vote1.clone());
+
+        });
+
 
         if (has50PercentMajority(votes)) return PollType.FIRST_PAST_THE_POST.calculate(votes); // base case
 

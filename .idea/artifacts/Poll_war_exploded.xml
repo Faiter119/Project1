@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Poll:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Poll_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Poll/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Poll" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

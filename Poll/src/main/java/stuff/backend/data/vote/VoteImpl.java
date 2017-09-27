@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Created by faiter on 6/7/17.
  */
-public class VoteImpl implements Vote {
+public class VoteImpl implements Vote, Cloneable {
 
     private List<RankedVote> rankedVoteList = new ArrayList<>();
 
@@ -86,16 +86,14 @@ public class VoteImpl implements Vote {
 
     }
 
-    public int getRankOf(Option option) { // could just do contains and get... but that is not F U N C T I O N A L
+    public Optional<Integer> getRankOf(Option option) { // could just do contains and get... but that is not F U N C T I O N A L
+
 
         return rankedVoteList
                 .stream()
-                .filter(rankedVote -> rankedVote.getOption() == option)
-                .findAny()
-                .orElseThrow(IllegalArgumentException::new)
-                .getRank();
-
-
+                .filter(rankedVote -> rankedVote.getOption().equals(option))
+                .map(RankedVote::getRank)
+                .findFirst();
     }
 
     @Override
@@ -103,6 +101,19 @@ public class VoteImpl implements Vote {
         return "Vote{"+ rankedVoteList + '}';
     }
 
+    @Override
+    public VoteImpl clone() {
+
+        VoteImpl vote = new VoteImpl();
+
+        List<RankedVote> copy = new ArrayList<>();
+
+        this.rankedVoteList.forEach(rankedVote -> copy.add(rankedVote.clone()));
+
+        vote.rankedVoteList = copy;
+
+        return vote;
+    }
 
     public static class Builder{ // convenience
         private List<RankedVote> rankedVoteList = new ArrayList<>();

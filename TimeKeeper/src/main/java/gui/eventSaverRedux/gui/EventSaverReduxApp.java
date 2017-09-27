@@ -1,14 +1,11 @@
-package gui.eventSaverRedux.gui;/**
+/*
+package gui.eventSaverRedux.gui;*/
+/**
  * Created by OlavH on 31-Mar-17.
- */
+ *//*
+
 
 import gui.eventSaverRedux.controllers.NewEventPaneController;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
@@ -39,4 +36,4 @@ public class EventSaverReduxApp extends Application {
         stage.setScene(new Scene(root));
         stage.show();
     }
-}
+}*/

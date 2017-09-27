@@ -61,7 +61,6 @@ public class PayAnalyzer {
         System.out.println(sumForSummer);*/
 
 
-
         double totalPayAllTime = events.stream()
                 //.filter(event -> event.getDate().isAfter(LocalDate.of(2017,1,31)) && event.getDate().isBefore(LocalDate.of(2017,3,1)))
                 .mapToDouble(value -> pay.payFor(value).doubleValue())

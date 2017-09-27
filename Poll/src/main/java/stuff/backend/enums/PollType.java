@@ -27,8 +27,6 @@ public enum PollType {
                     .max(Comparator.comparingInt(optionListEntry -> optionListEntry.getValue().size()))
                     .map(Map.Entry::getKey)
                     .orElseThrow(IllegalArgumentException::new);
-
-
         }
     },
     RANKED_CHOICE {

@@ -1,3 +1,4 @@
+/*
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -15,14 +16,14 @@ public class External {
     @SuppressWarnings("unchecked")
     public static <T extends Serializable> T noStorageFileFoundAlert(Stage stage){
 
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+       /* Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("No storage-file found!");
         alert.setContentText("Choose your option.");
 
         ButtonType newButton = new ButtonType("New file");
         ButtonType loadButton = new ButtonType("Load file");
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-
+*
         alert.getButtonTypes().setAll(newButton, loadButton, cancelButton);
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -77,3 +78,4 @@ public class External {
         return (ArrayList<Event>) Manager.readFile(loadedFile).get();
     }
 }
+*/

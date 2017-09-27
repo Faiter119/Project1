@@ -1,3 +1,4 @@
+/*
 package gui.eventSaverRedux.controllers;
 
 import gui.eventSaverRedux.data.Event;
@@ -66,4 +67,4 @@ public class EventSaverReduxController {
 
         eventTableView.getColumns().setAll(dateColomn, startColomn, endColomn, categoryColomn, descColomn);
     }
-}
+}*/

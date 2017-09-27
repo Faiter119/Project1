@@ -1,6 +1,6 @@
 package excel;
 
-import data.Person;
+import backend.data.Person;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 

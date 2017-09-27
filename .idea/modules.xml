@@ -14,14 +14,33 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Library.iml" filepath="$PROJECT_DIR$/.idea/modules/Library.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Library_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Library_main.iml" group="Library" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Library_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Library_test.iml" group="Library" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MessageService.iml" filepath="$PROJECT_DIR$/.idea/modules/MessageService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MessageService_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MessageService_main.iml" group="MessageService" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MessageService_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MessageService_test.iml" group="MessageService" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Nordnet.iml" filepath="$PROJECT_DIR$/.idea/modules/Nordnet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Nordnet_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Nordnet_main.iml" group="Nordnet" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Nordnet_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Nordnet_test.iml" group="Nordnet" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Poll.iml" filepath="$PROJECT_DIR$/.idea/modules/Poll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Poll_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Poll_main.iml" group="Poll" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Poll_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Poll_test.iml" group="Poll" />
       <module fileurl="file://$PROJECT_DIR$/Project1.iml" filepath="$PROJECT_DIR$/Project1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Project1-GradeCalculator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Project1-GradeCalculator_main.iml" group="GradeCalculator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Project1-GradeCalculator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Project1-GradeCalculator_test.iml" group="GradeCalculator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringBootGrettyTest.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringBootGrettyTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringBootGrettyTest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringBootGrettyTest_main.iml" group="SpringBootGrettyTest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringBootGrettyTest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringBootGrettyTest_test.iml" group="SpringBootGrettyTest" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/StockRatioCalculator.iml" filepath="$PROJECT_DIR$/.idea/modules/StockRatioCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/StockRatioCalculator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/StockRatioCalculator_main.iml" group="StockRatioCalculator" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/StockRatioCalculator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/StockRatioCalculator_test.iml" group="StockRatioCalculator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Testing.iml" filepath="$PROJECT_DIR$/.idea/modules/Testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Testing_main.iml" group="Testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Testing_test.iml" group="Testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper_main.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper_main.iml" group="TimeKeeper" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TimeKeeper_test.iml" filepath="$PROJECT_DIR$/.idea/modules/TimeKeeper_test.iml" group="TimeKeeper" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSocketChatClient.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSocketChatClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Twitter.iml" filepath="$PROJECT_DIR$/.idea/modules/Twitter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Twitter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Twitter_main.iml" group="Twitter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Twitter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Twitter_test.iml" group="Twitter" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSocketChatClient_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSocketChatClient_main.iml" group="WebSocketChatClient" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSocketChatClient_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSocketChatClient_test.iml" group="WebSocketChatClient" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WoT.iml" filepath="$PROJECT_DIR$/.idea/modules/WoT.iml" />

@@ -1,7 +1,5 @@
 package gui.eventSaverRedux.data;
 
-import javafx.util.converter.LocalDateTimeStringConverter;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -99,14 +97,14 @@ public class Event implements Serializable{
         return startTime.isEqual(LocalDateTime.now());
     }
 
-    public String toString() {
+    /*public String toString() {
 
         LocalDateTimeStringConverter converter = new LocalDateTimeStringConverter();
         if(startTime != null && endTime != null) {
             return  converter.toString(startTime) + " -> " + converter.toString(endTime);
         }
         return "";
-    }
+    }*/
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 

@@ -5,7 +5,7 @@ import stuff.backend.interfaces.Option;
 /**
  * Created by faiter on 6/18/17.
  */
-public class RankedVote {
+public class RankedVote implements Cloneable{
 
     private Option option;
     private int rank;
@@ -49,5 +49,11 @@ public class RankedVote {
     public String getTitle() {
 
         return option.getTitle();
+    }
+
+    @Override
+    protected RankedVote clone() {
+
+        return new RankedVote(this.getOption(), this.getRank());
     }
 }

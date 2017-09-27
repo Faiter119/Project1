@@ -2,6 +2,12 @@
  * Created by faiter on 6/29/17.
  */
 
+var navContainer = new Vue({
+
+    el: "#navContainer"
+
+})
+
 var container = new Vue({
     el: '#container',
     methods: {

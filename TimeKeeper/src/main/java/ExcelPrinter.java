@@ -1,4 +1,4 @@
-import Files.FileSingleObjectReader;
+/*
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
 
-/**
- * Created by OlavH on 20-Apr-17.
- */
 public class ExcelPrinter {
 
     public static void main(String[] args) throws IOException {
@@ -27,3 +24,4 @@ public class ExcelPrinter {
         printer.printRecord();
     }
 }
+*/
