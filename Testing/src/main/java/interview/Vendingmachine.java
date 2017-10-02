@@ -26,23 +26,29 @@ public class Vendingmachine {
 
         /**
          * @return First coin smaller or equal to the value
+         * Smallest possible coin or the largest coin
          */
         public static Coin smallestOfValue(int value){
             return Arrays.stream(values()).filter(coin -> coin.getVerdi() > value).findFirst().orElse(EN_KRONE).getPrev();
         }
+
+        /**
+         * @return Next ordinally or first value if at the end
+         */
         public Coin getNext(){
             int index = ordinal();
             int nextIndex = index == values().length-1 ? 0 : index+1;
             return values()[nextIndex];
-           }
+        }
+        /**
+         * @return Previous ordinally or last value if at the beginning
+         */
         public Coin getPrev(){
             int index = ordinal();
             int prevIndex = index == 0 ? values().length-1 : index-1;
             return values()[prevIndex];
         }
     }
-
-
 
     public static List<Coin> vend(List<Coin> cost, List<Coin> coins){
 
