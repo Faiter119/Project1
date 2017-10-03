@@ -14,9 +14,7 @@ public class Vendingmachine {
         EN_KRONE(1),
         FEM_KRONER(5),
         TI_KRONER(10),
-        TJUE_KRONER(20),
-        FEMTI_KRONER(50); // Can easily add new coins/bills and everything works
-
+        TJUE_KRONER(20);
         private int verdi;
         Coin(int verdi){this.verdi = verdi;}
 
@@ -50,18 +48,17 @@ public class Vendingmachine {
         }
     }
 
-    public static List<Coin> vend(List<Coin> cost, List<Coin> coins){
+    public static List<Coin> vend(int cost, List<Coin> coins){
 
-        int totalCost = sum(cost);
         int totalVerdi = sum(coins);
 
-        int toReturn = totalVerdi - totalCost;
+        int toReturn = totalVerdi - cost;
 
         System.out.println("To Return: "+toReturn);
 
         int remaining = toReturn;
 
-        if(totalVerdi < totalCost) return coins; // not enough money
+        if(totalVerdi < cost) return coins; // not enough money
 
         List<Coin> out = new ArrayList<>();
 
@@ -81,14 +78,13 @@ public class Vendingmachine {
 
     public static void main(String[] args) {
 
-        List<Coin> cost = Arrays.asList(Coin.FEMTI_KRONER, Coin.TI_KRONER, Coin.EN_KRONE, Coin.EN_KRONE);
-        List<Coin> pay = Arrays.asList(Coin.FEMTI_KRONER, Coin.TJUE_KRONER);
+        int cost = 15;
+        List<Coin> pay = Arrays.asList(Coin.TJUE_KRONER);
 
-        System.out.println("Cost: "+sum(cost) + " - Pay: "+sum(pay));
+        System.out.println("Cost: "+cost + " - Pay: "+sum(pay));
 
         List<Coin> vend = vend(cost, pay);
 
-        System.out.println("Compare: "+Coin.TJUE_KRONER.compareTo(Coin.FEMTI_KRONER)); // testing compareTo
 
         System.out.println(vend);
         System.out.println(sum(vend));
