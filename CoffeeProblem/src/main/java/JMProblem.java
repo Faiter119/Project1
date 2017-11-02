@@ -16,8 +16,8 @@ public class JMProblem {
 
         for (int i = 0; i < 2; i++) {
 
-            chocolate.pour(coffee, Fraction.ONE_HALF);
-            coffee.pour(chocolate, Fraction.ONE_HALF);
+            chocolate.pour(coffee, Fraction.TWO_THIRDS);
+            coffee.pour(chocolate, Fraction.TWO_THIRDS);
 
         }
 
